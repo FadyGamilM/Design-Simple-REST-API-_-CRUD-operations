@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./partials/head.ejs')  %>
+<style>
+   a.delete:hover{
+      cursor: pointer;
+   }
+</style>
+<body>
+   <%- include('./partials/nav.ejs')  %>
+
+   <% if (error!=="") { %>
+    <h4><%= error %> </h4>
+   <% } %>
+   <div class="details content">
+         <h1><%= blog.title %></h1>
+         <h4><%= blog.snippet %></h4>
+         <p><%= blog.body %></p>
+   </div>
+   <div>
+      <a class='delete' data-doc="<%= blog._id%>">Delete</a>
+   </div>
+
+   <div>      
+      <!-- so the Edit link will make a get request to /blogs/edit -->
+      <a href="/blogs/<%= blog._id %>/edit">EDIT</a>
+   </div>
+   <form action="/blogs/<%= blog._id %>?_method=DELETE" method="POST">
+      <button type="submit">
+         DELETE
+      </button>
+   </form>
+   <%- include('./partials/footer.ejs')  %>
+<script>
+   const trashBlog=document.querySelector('a.delete');
+   trashBlog.addEventListener('click',(e)=>{
+      e.preventDefault();
+      // endpoint that you need to send the DELETE request to it
+      const endpoint=`/blogs/${trashBlog.dataset.doc}`;
+      fetch(endpoint,{
+         method:'DELETE'
+      })
+      .then((response)=> response.json())
+         .then((data)=>{
+            // to redirect from webformer we use window.location.href
+            window.location.href=data.redirect;
+         })
+      .catch((err)=>{console.log(err);});      
+   });
+
+</script>
+</body>
+</html>

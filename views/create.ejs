@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./partials/head.ejs')  %>
+
+<body>
+   <%- include('./partials/nav.ejs')  %>
+   <div class="create-blog content">
+      <% if (error!=="") { %>
+         <h4><%= error  %></h4> 
+      <% } %>
+      <h2>Create New Blog</h2>   
+      <form action="/blogs" method="POST">
+         <label for="title">Blog title:</label>
+         <div><input type="text" id="title" required name="title"></div>
+         <label for="snippet">Blog Snippet:</label>
+         <div><input type="text" id="snippet" required name="snippet"></div>
+         <label for="body">Blog Body:</label>
+         <div><textarea id="body" required name="body"></textarea></div>
+         <button>Submit</button>
+      </form>
+   </div>
+   <%- include('./partials/footer.ejs')  %>
+
+</body>
+</html>

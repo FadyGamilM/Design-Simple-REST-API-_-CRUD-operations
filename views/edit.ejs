@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./partials/head.ejs')  %>
+
+<body>
+   <%- include('./partials/nav.ejs')  %>
+   <div>
+      <% if (error!=="") { %>
+         <h4><%= error  %></h4> 
+      <% } %>   
+      <h2>Edit A Blog</h2>
+      <form method="POST" action="/blogs/<%=blog._id%>?_method:PUT">
+         <label for="title">Blog title:</label>
+         <div><input type="text" id="title" required name="title" value="<%= blog.title %>"></div>
+         <label for="snippet">Blog Snippet:</label>
+         <div><input type="text" id="snippet" required name="snippet" value="<%= blog.snippet %>"></div>
+         <label for="body">Blog Body:</label>
+         <div><textarea id="body"  name="body"></textarea></div>
+         <a href="/blogs/<%=blog._id%>">Cancel</a>
+         <button type="submit">Update</button>
+      </form>
+   </div>
+   <%- include('./partials/footer.ejs')  %>
+
+</body>
+</html>

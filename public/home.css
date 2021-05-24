@@ -1,0 +1,48 @@
+@import url(https://fonts.googleapis.com/css?family=Source+Code+Pro:700);
+
+*, *:before, *:after {
+    -moz-box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #FFFFFF;
+}
+
+a, a:visited {
+    outline: medium none;
+    text-decoration: none;
+    transition: all 0.4s ease 0s;
+    -moz-transition: all 0.4s ease 0s;
+    -webkit-transition: all 0.4s ease 0s;
+}
+
+.nav {
+    margin: 5% 0;
+    text-align: center;
+}
+
+.nav li {
+    display: inline-block;
+}
+
+.nav li a {
+    display: block;
+    font: 20px/1.2 'Source Code Pro', sans-serif;
+    padding: 5px 15px;
+    text-transform: uppercase;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+    color: #666666;   
+}
+
+.nav li a:hover, .nav li a:active {
+    color: #B0392E;
+    text-decoration: none;
+}
+
+.nav li.fade a {
+    color: transparent;
+    text-shadow: 0 0 3px rgba(0, 0, 0, 0.4);
+}  
+  
