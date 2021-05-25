@@ -14,7 +14,7 @@ const methodOverride=require('method-override');
 let app=express();
 
 // Connect to DB using this connection string
-const DBURI=`mongodb+srv://FadyG:Fady+Gamil+MongoDB1@cluster0.pxdzk.mongodb.net/sample_mern?retryWrites=true&w=majority`;
+const DBURI=`mongodb+srv://FadyG:<password>@cluster0.pxdzk.mongodb.net/sample_mern?retryWrites=true&w=majority`;
 /**NOTES:
     *NOTE[1]: mongoose.connect() returns a promise, so we can pass
                a callback function to be fired when connection is ready.
